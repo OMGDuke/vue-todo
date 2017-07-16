@@ -2,7 +2,7 @@
   <div>
     <p>Completed Tasks: {{todos.filter(todo => {return todo.done === true}).length}}</p>
     <p>Pending Tasks: {{todos.filter(todo => {return todo.done === false}).length}}</p>
-    <todo v-on:delete-todo="deleteTodo" v-on:complete-todo="completeTodo" v-for="todo in todos" v-bind:todo="todo"></todo>
+    <todo v-on:delete-todo="deleteTodo" v-on:toggle-complete-todo="toggleCompleteTodo" v-for="todo in todos" v-bind:todo="todo"></todo>
   </div>
 </template>
 
@@ -19,9 +19,9 @@ export default {
       const todoIndex = this.todos.indexOf(todo);
       this.todos.splice(todoIndex, 1);
     },
-    completeTodo(todo) {
+    toggleCompleteTodo(todo) {
       const todoIndex = this.todos.indexOf(todo);
-      this.todos[todoIndex].done = true;
+      this.todos[todoIndex].done = !this.todos[todoIndex].done;
     },
   },
 };
