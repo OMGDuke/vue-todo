@@ -39,7 +39,7 @@
       Completed
     </div>
     <div class="ui bottom attached red basic button" v-show="!todo.done" v-on:click="toggleCompleteTodo(todo)">
-      Complete?
+      Pending
     </div>
   </div>
 </template>
